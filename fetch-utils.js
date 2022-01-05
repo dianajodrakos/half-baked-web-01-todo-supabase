@@ -48,7 +48,9 @@ export async function redirectIfLoggedIn() {
 
 export async function signupUser(email, password){
     const response = await client.auth.signUp({ email, password });
-    
+    if (response.user) {
+        location.replace('./todos');
+    };
     return checkError(response);
 }
 
