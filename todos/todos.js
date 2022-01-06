@@ -22,7 +22,7 @@ todoForm.addEventListener('submit', async(e) => {
     const data = new FormData(todoForm);
     const newTodoInput = data.get('todo');
     console.log(newTodoInput);
-    const newTodo = await createTodo(newTodoInput);
+    await createTodo(newTodoInput);
     await displayTodos();
 });
 
