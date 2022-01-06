@@ -21,7 +21,6 @@ todoForm.addEventListener('submit', async(e) => {
 
     const data = new FormData(todoForm);
     const newTodoInput = data.get('todo');
-    console.log(newTodoInput);
     await createTodo(newTodoInput);
     await displayTodos();
 });
@@ -34,13 +33,13 @@ async function displayTodos() {
     for (let todo of todos) {
         const todoEl = renderTodo(todo);
         // be sure to give each todo an event listener
-        if(!todo.complete){
+        if (!todo.complete){
             // on click, complete that todo
             todoEl.addEventListener('click', async() => {
-            await completeTodo(todo.id);
-            await displayTodos();
-        });
-    };
+                await completeTodo(todo.id);
+                await displayTodos();
+            });
+        }
         todosEl.append(todoEl);
     }
 
@@ -49,7 +48,7 @@ async function displayTodos() {
 // add an on load listener that fetches and displays todos on load
 window.addEventListener('load', async() => {
     await displayTodos();
-})
+});
 
 logoutButton.addEventListener('click', () => {
     logout();

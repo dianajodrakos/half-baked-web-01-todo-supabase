@@ -1,4 +1,4 @@
-export function renderTodo({todo, complete}) {
+export function renderTodo({ todo, complete }) {
     // create a div and a p tag
     const div = document.createElement('div');
     const p = document.createElement('p');
@@ -6,11 +6,11 @@ export function renderTodo({todo, complete}) {
     // depending on whether the todo is complete, give the div the appropriate css class ('complete' or 'incomplete')
 
     complete 
-    ? div.classList.add('complete')
-    : div.classList.add('incomplete');
+        ? div.classList.add('complete')
+        : div.classList.add('incomplete');
 
     // add the 'todo' css class no matter what
-    div.classList.add('todo')
+    div.classList.add('todo');
     // put the todo's text into the p tag
     p.textContent = todo;
 
@@ -18,4 +18,4 @@ export function renderTodo({todo, complete}) {
     div.append(p);
     // return the div
     return div;
-};
+}
